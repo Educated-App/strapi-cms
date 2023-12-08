@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "school_profiles",
+  "info": {
+    "singularName": "school-profile",
+    "pluralName": "school-profiles",
+    "displayName": "School Profile",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "specializations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::school-specialization.school-specialization",
+      "mappedBy": "profile"
+    }
+  }
+}
