@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_courses_faqs",
+  "info": {
+    "displayName": "faq"
+  },
+  "options": {},
+  "attributes": {
+    "question": {
+      "type": "string"
+    },
+    "answear": {
+      "type": "text"
+    }
+  }
+}

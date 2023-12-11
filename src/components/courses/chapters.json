@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_courses_chapters",
+  "info": {
+    "displayName": "chapters"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "lessons": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::lesson.lesson"
+    }
+  }
+}

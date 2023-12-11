@@ -32,11 +32,6 @@
         "audios"
       ]
     },
-    "lessons": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::lesson.lesson"
-    },
     "specializations": {
       "type": "relation",
       "relation": "oneToMany",
@@ -46,6 +41,12 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::topic.topic"
+    },
+    "chapters": {
+      "displayName": "chapters",
+      "type": "component",
+      "repeatable": true,
+      "component": "courses.chapters"
     }
   }
 }

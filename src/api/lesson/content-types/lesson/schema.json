@@ -15,11 +15,18 @@
     "title": {
       "type": "string"
     },
-    "content": {
-      "type": "blocks"
+    "fagq": {
+      "type": "component",
+      "repeatable": true,
+      "component": "courses.faq"
     },
-    "test": {
-      "type": "richtext"
+    "content": {
+      "type": "customField",
+      "options": {
+        "output": "Markdown",
+        "preset": "standard"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
     }
   }
 }

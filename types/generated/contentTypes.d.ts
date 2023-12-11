@@ -693,11 +693,6 @@ export interface ApiCourseCourse extends Schema.CollectionType {
     name: Attribute.String;
     description: Attribute.Text;
     cover: Attribute.Media;
-    lessons: Attribute.Relation<
-      'api::course.course',
-      'oneToMany',
-      'api::lesson.lesson'
-    >;
     specializations: Attribute.Relation<
       'api::course.course',
       'oneToMany',
@@ -708,6 +703,7 @@ export interface ApiCourseCourse extends Schema.CollectionType {
       'oneToOne',
       'api::topic.topic'
     >;
+    chapters: Attribute.Component<'courses.chapters', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -739,8 +735,15 @@ export interface ApiLessonLesson extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String;
-    content: Attribute.Blocks;
-    test: Attribute.RichText;
+    fagq: Attribute.Component<'courses.faq', true>;
+    content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'Markdown';
+          preset: 'standard';
+        }
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
