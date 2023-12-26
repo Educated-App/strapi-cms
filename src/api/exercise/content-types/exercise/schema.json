@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "exercises",
+  "info": {
+    "singularName": "exercise",
+    "pluralName": "exercises",
+    "displayName": "Exercise",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "requirement": {
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "with-sub-item",
+        "short-text",
+        "long-text",
+        "multiple-answer",
+        "code",
+        "one-answer"
+      ]
+    },
+    "options": {
+      "displayName": "options",
+      "type": "component",
+      "repeatable": true,
+      "component": "exercise-options.options"
+    }
+  }
+}

@@ -26,11 +26,23 @@ export interface CoursesFaq extends Schema.Component {
   };
 }
 
+export interface ExerciseOptionsOptions extends Schema.Component {
+  collectionName: 'components_exercise_options_options';
+  info: {
+    displayName: 'options';
+  };
+  attributes: {
+    label: Attribute.String;
+    value: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'courses.chapters': CoursesChapters;
       'courses.faq': CoursesFaq;
+      'exercise-options.options': ExerciseOptionsOptions;
     }
   }
 }

@@ -722,6 +722,55 @@ export interface ApiCourseCourse extends Schema.CollectionType {
   };
 }
 
+export interface ApiExerciseExercise extends Schema.CollectionType {
+  collectionName: 'exercises';
+  info: {
+    singularName: 'exercise';
+    pluralName: 'exercises';
+    displayName: 'Exercise';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    requirement: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'rich';
+        }
+      >;
+    type: Attribute.Enumeration<
+      [
+        'with-sub-item',
+        'short-text',
+        'long-text',
+        'multiple-answer',
+        'code',
+        'one-answer'
+      ]
+    >;
+    options: Attribute.Component<'exercise-options.options', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::exercise.exercise',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::exercise.exercise',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiLessonLesson extends Schema.CollectionType {
   collectionName: 'lessons';
   info: {
@@ -740,8 +789,8 @@ export interface ApiLessonLesson extends Schema.CollectionType {
       Attribute.CustomField<
         'plugin::ckeditor.CKEditor',
         {
-          output: 'Markdown';
-          preset: 'standard';
+          output: 'HTML';
+          preset: 'rich';
         }
       >;
     createdAt: Attribute.DateTime;
@@ -887,6 +936,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
       'api::course.course': ApiCourseCourse;
+      'api::exercise.exercise': ApiExerciseExercise;
       'api::lesson.lesson': ApiLessonLesson;
       'api::school-profile.school-profile': ApiSchoolProfileSchoolProfile;
       'api::school-specialization.school-specialization': ApiSchoolSpecializationSchoolSpecialization;

@@ -23,8 +23,8 @@
     "content": {
       "type": "customField",
       "options": {
-        "output": "Markdown",
-        "preset": "standard"
+        "output": "HTML",
+        "preset": "rich"
       },
       "customField": "plugin::ckeditor.CKEditor"
     }
